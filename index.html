@@ -212,6 +212,16 @@
       data = data.filter(function (d) { return d.level === options.filtered; })
     }
 
+    // Make sure the page always has results by wrapping past the end
+    var lastPage = Math.floor(data.length / PER_PAGE);
+    if (options.page < 0) {
+      // If the page is less than 0, wrap around to the last page
+      options.page = lastPage;
+    } else if (options.page > lastPage) {
+      // If the page exceeds the number of results, wrap around to the first page
+      options.page = 0;
+    }
+
     // Select only the schools from the current page (slice)
     data = data.slice(options.page * PER_PAGE, (options.page + 1) * PER_PAGE);
 
