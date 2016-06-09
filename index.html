@@ -188,7 +188,9 @@
   var MAX_ENROLLMENT = 1783;
 
   var options = {
-    sorted: false
+    sorted: false,
+    filtered: false,
+    page: 0
   };
 
   function updateTable() {
@@ -203,6 +205,10 @@
         data.sort(function (a, b) { return b.enrollment - a.enrollment; });
       }
     }
+
+    // Filter schools by grade level
+
+    // Select only the schools from the current page (slice)
 
     var table = document.getElementById('data-table');
     var tbody = table.getElementsByTagName('tbody')[0];
