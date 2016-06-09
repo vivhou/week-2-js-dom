@@ -21,21 +21,19 @@
     <p>Let's wire up some buttons.</p>
   </div>
 </div>
-
-<div class="controls section">
-  <div class="container">
-    <div class="btn-group" role="group" aria-label="Sort">
-      <button type="button" class="btn btn-default" id="sort-asc">Ascending</button>
-      <button type="button" class="btn btn-default" id="sort-desc">Descending</button>
+<div class ="controls section">
+    <div class ="container">
+        <div class="btn-group" role="group" aria-label="Sort">
+            <button type="button" class="btn btn-default" id="sort-asc">Ascending</button>
+            <button type="button" class="btn btn-default" id="sort-desc">Descending</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Sort">
+            <button type="button" class="btn btn-default" id="filter-es">Elementary</button>
+            <button type="button" class="btn btn-default" id="filter-ms">Middle</button>
+            <button type="button" class="btn btn-default" id="filter-hs">High</button>
+        </div>
     </div>
-    <div class="btn-group" role="group" aria-label="Filter">
-      <button type="button" class="btn btn-default" id="filter-es">Elementary</button>
-      <button type="button" class="btn btn-default" id="filter-ms">Middle</button>
-      <button type="button" class="btn btn-default" id="filter-hs">High</button>
-    </div>
-  </div>
-</div>
-
+</div>    
 <div class="main section">
   <div class="container">
     <table class="table">
@@ -47,16 +45,22 @@
         </tr>
       </thead>
       <tbody>
+       
+       
       </tbody>
     </table>
     <nav>
-      <ul class="pager">
-        <li class="previous"><a href="#" id="page-prev"><span aria-hidden="true">&larr;</span> Previous</a></li>
-        <li class="next"><a href="#" id="page-next">Next <span aria-hidden="true">&rarr;</span></a></li>
-      </ul>
-    </nav>
+  <ul class="pager">
+    <li class="previous"><a href="#" id="page-prev"><span aria-hidden="true">&larr;</span> Older</a></li>
+    <li class="next"><a href="#" id="page-next">Newer id<span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav>
   </div>
 </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+  <script>
+    var schools = {};
+    
+  </script>
 </body>
 </html>
