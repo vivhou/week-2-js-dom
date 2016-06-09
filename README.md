@@ -6,10 +6,10 @@ Following the example of sorting, which we did in class, we'll finish wiring up 
 Add a set of buttons that filter the data. If you don't have a categorical variable in your data, you might fake one by, for example, creating filters based on the first letter of a variable, i.e. all the names starting with 'A'. You'll probably need the [Array.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) method.
 
 ```js
-var arr = [0, 1, 2, 3, 4, 5]
+var arr = [{ 'name': 'fred', 'age': 30 }, { 'name': 'barney', 'age': 40 }]
 
-var filtered = arr.filter(function (d) { return d > 2; })
-// [3, 4, 5]
+var filtered = arr.filter(function (d) { return d.age > 30; })
+// [{ 'name': 'barney', 'age': 40 }]
 ```
 
 ## Task 2 - Pagination
