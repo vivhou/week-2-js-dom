@@ -15,6 +15,10 @@
     #data-table td {
       width: 25%;
     }
+    .bar {
+      height: 20px;
+      background: #337ab7;
+    }
   </style>
 </head>
 <body>
@@ -181,6 +185,8 @@
     {"code":425,"name":"Empowering Males HS","level_text":"High","level":"hs","enrollment":150}
   ];
 
+  var MAX_ENROLLMENT = 1783;
+
   function updateTable() {
     var data = schools;
 
@@ -205,6 +211,13 @@
       var enrollment = document.createElement('td');
       enrollment.innerHTML = d.enrollment + ' students';
       row.appendChild(enrollment);
+
+      var barWrapper = document.createElement('td');
+      var bar = document.createElement('div');
+      bar.setAttribute('class', 'bar');
+      bar.setAttribute('style', 'width: ' + (d.enrollment / MAX_ENROLLMENT * 100) + '%;');
+      barWrapper.appendChild(bar);
+      row.appendChild(barWrapper);
 
       tbody.appendChild(row);
     });
