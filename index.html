@@ -187,8 +187,22 @@
 
   var MAX_ENROLLMENT = 1783;
 
+  var options = {
+    sorted: 'desc'
+  };
+
   function updateTable() {
-    var data = schools;
+    // Make a copy of the data
+    var data = schools.slice();
+
+    // Sort schools by enrollment
+    if (options.sorted) {
+      if (options.sorted === 'asc') {
+        data.sort(function (a, b) { return a.enrollment - b.enrollment; });
+      } else if (options.sorted === 'desc') {
+        data.sort(function (a, b) { return b.enrollment - a.enrollment; });
+      }
+    }
 
     var table = document.getElementById('data-table');
     var tbody = table.getElementsByTagName('tbody')[0];
