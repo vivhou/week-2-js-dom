@@ -268,11 +268,20 @@
   updateTable();
 
   function setOption(name, value) {
+    // Remove the 'active' class from the target and its siblings
+    var i;
+    var siblings = event.target.parentNode.children;
+    // We can't use Array.forEach() because DOM nodes are an HTMLCollection, not an Array, so we use a for loop instead.
+    for (i = 0; i < siblings.length; i++) {
+      siblings[i].setAttribute('class', siblings[i].className.replace('active', ''));
+    }
+
     // Disable the sort/filter if the same option was previously selected
     if (options[name] === value) {
       options[name] = false;
     } else {
       options[name] = value;
+      event.target.setAttribute('class', event.target.className + ' active');
     }
 
     options.page = 0;
