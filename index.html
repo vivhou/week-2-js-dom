@@ -194,6 +194,14 @@
       school.innerHTML = d.name;
       row.appendChild(school);
 
+      var level = document.createElement('td');
+      level.innerHTML = d.level_text;
+      row.appendChild(level);
+
+      var enrollment = document.createElement('td');
+      enrollment.innerHTML = d.enrollment + ' students';
+      row.appendChild(enrollment);
+
       tbody.appendChild(row);
     });
   }
