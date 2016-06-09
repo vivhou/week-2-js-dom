@@ -178,11 +178,20 @@
   ];
 
   function updateTable() {
-      var table = document.getElementById('data-table');
-      var tbody = table.getElementsByTagName('tbody')[0];
+    var data = schools;
 
-      // Remove any existing rows
-      tbody.innerHTML = '';
+    var table = document.getElementById('data-table');
+    var tbody = table.getElementsByTagName('tbody')[0];
+
+    // Remove any existing rows
+    tbody.innerHTML = '';
+
+    // Add a new row for each datum
+    data.forEach(function (d) {
+      var row = document.createElement('tr');
+
+      tbody.appendChild(row);
+    });
   }
 
   updateTable();
