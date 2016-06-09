@@ -207,6 +207,9 @@
     }
 
     // Filter schools by grade level
+    if (options.filtered) {
+      data = data.filter(function (d) { return d.level === options.filtered; })
+    }
 
     // Select only the schools from the current page (slice)
 
@@ -262,6 +265,39 @@
       options.sorted = false;
     } else {
       options.sorted = 'desc';
+    }
+
+    updateTable();
+  });
+
+  document.getElementById('filter-es').addEventListener('click', function () {
+    // Disable the filter if 'es' was previously selected
+    if (options.filtered === 'es') {
+      options.filtered = false;
+    } else {
+      options.filtered = 'es';
+    }
+
+    updateTable();
+  });
+
+  document.getElementById('filter-ms').addEventListener('click', function () {
+    // Disable the filter if 'ms' was previously selected
+    if (options.filtered === 'ms') {
+      options.filtered = false;
+    } else {
+      options.filtered = 'ms';
+    }
+
+    updateTable();
+  });
+
+  document.getElementById('filter-hs').addEventListener('click', function () {
+    // Disable the filter if 'hs' was previously selected
+    if (options.filtered === 'hs') {
+      options.filtered = false;
+    } else {
+      options.filtered = 'hs';
     }
 
     updateTable();
