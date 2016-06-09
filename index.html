@@ -12,6 +12,9 @@
       color: white;
       padding: 1em 0 2em;
     }
+    #page-tally {
+      text-align: right;
+    }
     #data-table td {
       width: 25%;
     }
@@ -45,6 +48,7 @@
 </div>
 <div class="main section">
   <div class="container">
+    <p id="page-tally"></p>
     <table class="table" id="data-table">
       <thead>
         <tr>
@@ -224,6 +228,9 @@
 
     // Select only the schools from the current page (slice)
     data = data.slice(options.page * PER_PAGE, (options.page + 1) * PER_PAGE);
+
+    // Print the page number and total number of pages
+    document.getElementById('page-tally').innerHTML = 'Page ' + (options.page + 1) + ' of ' + (lastPage + 1);
 
     var table = document.getElementById('data-table');
     var tbody = table.getElementsByTagName('tbody')[0];
