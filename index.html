@@ -38,7 +38,7 @@
 </div>
 <div class="main section">
   <div class="container">
-    <table class="table">
+    <table class="table" id="data-table">
       <thead>
         <tr>
           <th>School</th>
@@ -178,6 +178,11 @@
   ];
 
   function updateTable() {
+      var table = document.getElementById('data-table');
+      var tbody = table.getElementsByTagName('tbody')[0];
+
+      // Remove any existing rows
+      tbody.innerHTML = '';
   }
 
   updateTable();
