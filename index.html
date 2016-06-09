@@ -188,7 +188,7 @@
   var MAX_ENROLLMENT = 1783;
 
   var options = {
-    sorted: 'desc'
+    sorted: false
   };
 
   function updateTable() {
@@ -238,6 +238,16 @@
   }
 
   updateTable();
+
+  document.getElementById('sort-asc').addEventListener('click', function () {
+    options.sorted = 'asc';
+    updateTable();
+  });
+
+  document.getElementById('sort-desc').addEventListener('click', function () {
+    options.sorted = 'desc';
+    updateTable();
+  });
 </script>
 </body>
 </html>
