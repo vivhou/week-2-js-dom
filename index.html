@@ -240,12 +240,24 @@
   updateTable();
 
   document.getElementById('sort-asc').addEventListener('click', function () {
-    options.sorted = 'asc';
+    // Disable the sort if 'asc' was previously selected
+    if (options.sorted === 'asc') {
+      options.sorted = false;
+    } else {
+      options.sorted = 'asc';
+    }
+
     updateTable();
   });
 
   document.getElementById('sort-desc').addEventListener('click', function () {
-    options.sorted = 'desc';
+    // Disable the sort if 'desc' was previously selected
+    if (options.sorted === 'desc') {
+      options.sorted = false;
+    } else {
+      options.sorted = 'desc';
+    }
+
     updateTable();
   });
 </script>
