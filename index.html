@@ -267,70 +267,25 @@
 
   updateTable();
 
-  document.getElementById('sort-asc').addEventListener('click', function () {
-    // Disable the sort if 'asc' was previously selected
-    if (options.sorted === 'asc') {
-      options.sorted = false;
+  function setOption(name, value) {
+    // Disable the sort/filter if the same option was previously selected
+    if (options[name] === value) {
+      options[name] = false;
     } else {
-      options.sorted = 'asc';
+      options[name] = value;
     }
 
     options.page = 0;
 
     updateTable();
-  });
+  }
 
-  document.getElementById('sort-desc').addEventListener('click', function () {
-    // Disable the sort if 'desc' was previously selected
-    if (options.sorted === 'desc') {
-      options.sorted = false;
-    } else {
-      options.sorted = 'desc';
-    }
+  document.getElementById('sort-asc').addEventListener('click', function () { setOption('sorted', 'asc'); });
+  document.getElementById('sort-desc').addEventListener('click', function () { setOption('sorted', 'desc'); });
 
-    options.page = 0;
-
-    updateTable();
-  });
-
-  document.getElementById('filter-es').addEventListener('click', function () {
-    // Disable the filter if 'es' was previously selected
-    if (options.filtered === 'es') {
-      options.filtered = false;
-    } else {
-      options.filtered = 'es';
-    }
-
-    options.page = 0;
-
-    updateTable();
-  });
-
-  document.getElementById('filter-ms').addEventListener('click', function () {
-    // Disable the filter if 'ms' was previously selected
-    if (options.filtered === 'ms') {
-      options.filtered = false;
-    } else {
-      options.filtered = 'ms';
-    }
-
-    options.page = 0;
-
-    updateTable();
-  });
-
-  document.getElementById('filter-hs').addEventListener('click', function () {
-    // Disable the filter if 'hs' was previously selected
-    if (options.filtered === 'hs') {
-      options.filtered = false;
-    } else {
-      options.filtered = 'hs';
-    }
-
-    options.page = 0;
-
-    updateTable();
-  });
+  document.getElementById('filter-es').addEventListener('click', function () { setOption('filtered', 'es'); });
+  document.getElementById('filter-ms').addEventListener('click', function () { setOption('filtered', 'ms'); });
+  document.getElementById('filter-hs').addEventListener('click', function () { setOption('filtered', 'hs'); });
 
   document.getElementById('page-prev').addEventListener('click', function () {
     options.page = options.page - 1;
