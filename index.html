@@ -190,6 +190,10 @@
     data.forEach(function (d) {
       var row = document.createElement('tr');
 
+      var school = document.createElement('td');
+      school.innerHTML = d.name;
+      row.appendChild(school);
+
       tbody.appendChild(row);
     });
   }
