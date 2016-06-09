@@ -12,6 +12,13 @@
       color: white;
       padding: 1em 0 2em;
     }
+    #data-table td {
+      width: 25%; /*assigns width to columns */
+    }
+    .bar {
+      height: 20px;
+      background: #337ab7;
+    }
   </style>
 </head>
 <body>
@@ -36,12 +43,13 @@
 </div>    
 <div class="main section">
   <div class="container">
-    <table class="table">
+    <table class="table" id="data-table">
       <thead>
         <tr>
           <th>School</th>
           <th>Type</th>
           <th>Enrollment</th>
+          <th>Chart</th>
         </tr>
       </thead>
       <tbody>
@@ -174,7 +182,46 @@
 {"code":435,"name":"McKinley MS","level_text":"Middle","level":"ms","enrollment":209},
 {"code":420,"name":"MacFarland MS","level_text":"Middle","level":"ms","enrollment":72},
 {"code":425,"name":"Empowering Males HS","level_text":"High","level":"hs","enrollment":150}]
+
+var MAX_ENROLLMENT = 1783;
+  
+  function updateTable() {
+    var data = schools;
+
+    var table = document.getElementById('data-table');
+    var tbody = table.getElementsByTagName('tbody')[0];
     
+    tbody.innerHTML = ''; //get rid of inside of tbody
+  
+    data.forEach(function (d) { //forEach is for each object in array
+      //console.log(d.name);
+      var row = document.createElement('tr');
+      var school = document.createElement('td');
+      school.innerHTML = d.name; //adding school name to each tr and td tags
+      row.appendChild(school); //add row to dom
+
+      var level = document.createElement('td');
+      level.innerHTML = d.level_text; 
+      row.appendChild(level); //add row to dom
+
+      var enrollment = document.createElement('td');
+      enrollment.innerHTML = d.enrollment + ' students'; 
+      row.appendChild(enrollment); //add row to dom
+
+      var barWrapper = document.createElement('td');
+      var bar = document.createElement('div');
+      bar.setAttribute('class', 'bar'); //assigns bar class
+      bar.setAttribute('style', 'width: ' +(d.enrollment / MAX_ENROLLMENT * 100) + '%;');
+      barWrapper.appendChild(bar);
+      row.appendChild(barWrapper);
+
+
+      tbody.appendChild(row);
+    });
+
+  }
+  updateTable();
+
   </script>
 </body>
 </html>
